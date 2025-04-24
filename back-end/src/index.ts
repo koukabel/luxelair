@@ -14,7 +14,6 @@ import { getDataSource } from "./database";
 import { getCache } from "./cache";
 import { generateUsers } from "./fixtures/user";
 import { generateAds } from "./fixtures/ad";
-
 export type Context = { req: any; res: Response; user: User | null };
 
 const authChecker: AuthChecker<Context> = ({ context }) => {
