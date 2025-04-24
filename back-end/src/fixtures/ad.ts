@@ -3,14 +3,14 @@ import Ad from "../entities/ad";
 import { generateUsers } from "./user";
 import { EquipmentTypeEnum, HousingTypeEnum } from "../entities/ad";
 
-// Static ad data to replace Faker
+
 const staticAds = [
   {
     title: "Beautiful Parisian Apartment",
     description: "Charming apartment in the heart of Paris with Eiffel Tower view. Perfect for romantic getaways.",
     price: 120,
     location: "Paris, France",
-    image: "https://example.com/images/paris-apartment.jpg",
+    image: "https://picsum.photos/id/237/200/300",
     equipements: [
       EquipmentTypeEnum.Balcon,
       EquipmentTypeEnum.Ascenseur,
@@ -24,7 +24,7 @@ const staticAds = [
     description: "Stunning 5-bedroom villa with private pool, garden and sea view. Perfect for family vacations.",
     price: 350,
     location: "Nice, France",
-    image: "https://example.com/images/nice-villa.jpg",
+    image: "https://picsum.photos/id/237/200/300",
     equipements: [
       EquipmentTypeEnum.Pool,
       EquipmentTypeEnum.Climatisation,
@@ -139,23 +139,37 @@ const staticAds = [
 ];
 
 export const generateAds = async () => {
-  const users = await generateUsers();
-  const ads = [];
-  
-  for (let i = 0; i < staticAds.length; i++) {
-    const ad = new Ad();
-    ad.title = staticAds[i].title;
-    ad.description = staticAds[i].description;
-    ad.price = staticAds[i].price;
-    ad.location = staticAds[i].location;
-    ad.image = staticAds[i].image;
-    ad.equipements = staticAds[i].equipements;
-    ad.housingType = staticAds[i].housingType;
-    ad.user = users[i % users.length]; // Distribute ads evenly among users
-    ads.push(ad);
-  }
-  
-  await Ad.save(ads);
-  return ads;
-};
+  // 1. DELETE ALL EXISTING ADS FIRST (clean slate)
+  await Ad.delete({}); 
 
+  // 2. Get fresh users
+  const users = await generateUsers();
+  
+  // 3. Create new ads with duplicate protection
+  const createdAds = [];
+  const uniqueKeys = new Set(); // Track titles to prevent duplicates
+
+  for (const adData of staticAds) {
+    // 4. Create a unique signature for each ad
+    const adSignature = `${adData.title}-${adData.location}-${adData.price}`;
+
+    if (!uniqueKeys.has(adSignature)) {
+      const ad = new Ad();
+      ad.title = adData.title;
+      ad.description = adData.description;
+      ad.price = adData.price;
+      ad.location = adData.location;
+      ad.image = adData.image;
+      ad.equipements = adData.equipements;
+      ad.housingType = adData.housingType;
+      ad.user = users[Math.floor(Math.random() * users.length)]; // Random user
+      
+      await ad.save();
+      createdAds.push(ad);
+      uniqueKeys.add(adSignature);
+    }
+  }
+
+  console.log(`Generated ${createdAds.length} unique ads`);
+  return Ad.find({ relations: ["user"] });
+};

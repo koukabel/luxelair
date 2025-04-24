@@ -1,5 +1,6 @@
-import { Badge, Box, Image, Link, Text } from "@chakra-ui/react";
-
+import { Flex, Box, Image, Link, Text } from "@chakra-ui/react";
+import { Icon } from "@chakra-ui/react"
+import { HiHeart } from "react-icons/hi"
 interface props {
   id: string;
   location: string;
@@ -11,20 +12,66 @@ interface props {
 const Card: React.FC<props> = ({ id, location, price, title, image }) => {
   return (
     <Link href={`/ad/${id}`} _hover={{ textDecoration: "none" }}>
-      <Box
-        cursor="pointer"
-        maxW="sm"
-        borderWidth="1px"
-        borderRadius="lg"
-        overflow="hidden"
-      >
-        <Image objectFit="cover" src={image} alt="" />
-        <Box display="flex" alignItems="baseline">
-          <Badge borderRadius="full" px="2" bg="#B4770A" color="white">
-            New
-          </Badge>
-        </Box>
-      </Box>
+<Box
+  cursor="pointer"
+  maxW="sm"
+  borderWidth="1px"
+  borderRadius="lg"
+  overflow="hidden"
+  position="relative"
+>
+
+  <Image 
+    src="/ad1.jpeg"
+    alt="" 
+    width="100%"
+    objectFit="cover"
+    height="100%"
+  />
+  
+  {/* Favorite icon */}
+  <Box
+    position="absolute"
+    top="3"
+    right="3"
+  >
+    <Icon as={HiHeart} boxSize="6"
+      color="rgba(0, 0, 0, 0.5)"
+      zIndex="1"
+      position="relative" />
+  </Box>
+ 
+  {/* Slide navigation (right arrow) */}
+  <Box
+    position="absolute"
+    top="110"
+    right="3"
+    bg="white"
+    borderRadius="full"
+    p={1}
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+  </Box>
+
+  {/* Dots indicator (static) */}
+  <Flex 
+    position="absolute" 
+    bottom="3" 
+    left="0" 
+    right="0" 
+    justify="center" 
+    gap="2"
+  >
+    {/* First dot (active) */}
+    <Box w="2" h="2" borderRadius="full" bg="white" />
+    {/* Inactive dots */}
+    <Box w="2" h="2" borderRadius="full" bg="whiteAlpha.500" />
+    <Box w="2" h="2" borderRadius="full" bg="whiteAlpha.500" />
+  </Flex>
+
+</Box>
       <Box
         mt="1"
         as="h4"

@@ -50,7 +50,7 @@ export default function HomePage() {
           </Heading>
         </Box> */}
 
-        <SimpleGrid w="100%" padding="10" minChildWidth="200px" spacing="50px">
+        <SimpleGrid w="100%" padding="35" minChildWidth="300px" spacing="50px">
           {data?.getAds
             ? data.getAds.map((ad) => (
                 <Card
@@ -59,7 +59,7 @@ export default function HomePage() {
                   price={ad.price}
                   title= {ad.title}
                   location={ad.location}
-                  image={`/file-hosting/${ad.id}.jpg`}
+                  image={ad.image}
                 />
               ))
             : null}

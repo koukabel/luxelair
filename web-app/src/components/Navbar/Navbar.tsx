@@ -73,7 +73,7 @@ export default function Navbar() {
       <Link href="/" width={"30%"}>
         <Image
           src="/logo_white.png"
-          boxSize={{ base: "100px", md: "150px" }}
+          boxSize={{ base: "100px", md: "120px" }}
           objectFit="fill"
         />
       </Link>
