@@ -1,4 +1,5 @@
 import { Flex, Box, Image, Link, Text } from "@chakra-ui/react";
+import React, { useState, useRef } from "react";
 import { Icon } from "@chakra-ui/react"
 import { HiHeart } from "react-icons/hi"
 interface props {
@@ -10,8 +11,16 @@ interface props {
 }
 
 const Card: React.FC<props> = ({ id, location, price, title, image }) => {
+
+  const [favoriteState, setFavoriteState] = useState(false)
+
+  const saveNewFavoriteAd= () => {
+    setFavoriteState(!favoriteState)
+  }
+
+
   return (
-    <Link href={`/ad/${id}`} _hover={{ textDecoration: "none" }}>
+  <Box>
 <Box
   cursor="pointer"
   maxW="sm"
@@ -21,6 +30,7 @@ const Card: React.FC<props> = ({ id, location, price, title, image }) => {
   position="relative"
 >
 
+<Link href={`/ad/${id}`} _hover={{ textDecoration: "none" }}>
   <Image 
     src="/ad1.jpeg"
     alt="" 
@@ -28,17 +38,23 @@ const Card: React.FC<props> = ({ id, location, price, title, image }) => {
     objectFit="cover"
     height="100%"
   />
+  </Link>
   
   {/* Favorite icon */}
   <Box
     position="absolute"
     top="3"
-    right="3"
+ 
+    right="3" 
+    h="50"
+    w="90"
+    onClick={saveNewFavoriteAd}
   >
     <Icon as={HiHeart} boxSize="6"
-      color="rgba(0, 0, 0, 0.5)"
       zIndex="1"
-      position="relative" />
+      position="relative" 
+    
+      color = {favoriteState ? "red" : "rgba(0, 0, 0, 0.5)"}/>
   </Box>
  
   {/* Slide navigation (right arrow) */}
@@ -72,6 +88,7 @@ const Card: React.FC<props> = ({ id, location, price, title, image }) => {
   </Flex>
 
 </Box>
+<Link href={`/ad/${id}`} _hover={{ textDecoration: "none" }}> 
       <Box
         mt="1"
         as="h4"
@@ -80,7 +97,7 @@ const Card: React.FC<props> = ({ id, location, price, title, image }) => {
       >
         {title}
       </Box>
-
+      </Link>
       <Box
         mt="1"
        as="h4"
@@ -93,7 +110,7 @@ const Card: React.FC<props> = ({ id, location, price, title, image }) => {
       <Box>
         <Text fontSize="sm"  > {price}  € par nuit</Text>
       </Box>
-    </Link>
+      </Box>
   );
 };
 

@@ -29,28 +29,9 @@ export default function HomePage() {
         <SearchBar />
         <Divider />
         <FilterSection />
-        {/* <Box pos="relative">
-          <Image
-            margin="auto"
-            p="10px"
-            objectFit="cover"
-            src="welcome_page.png"
-            alt="Welcome Page"
-          />
+      
 
-          <Heading
-            w="50%"
-            pos="absolute"
-            top="80%"
-            left="70%"
-            color="white"
-            transform="translate(-50%,-50%)"
-          >
-            LuxeLair.. Où le bien-être commence{" "}
-          </Heading>
-        </Box> */}
-
-        <SimpleGrid w="100%" padding="35" minChildWidth="300px" spacing="50px">
+        <SimpleGrid w="100%" padding="45" minChildWidth="300px" spacing="50px">
           {data?.getAds
             ? data.getAds.map((ad) => (
                 <Card

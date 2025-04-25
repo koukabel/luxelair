@@ -12,6 +12,7 @@ import { compare, hash } from "bcrypt";
 import UserSession from "./userSession";
 import Ad from "./ad";
 import Payment from "./payment";
+import Favorite from "./favorite";
 
 @Entity("user")
 @ObjectType()
@@ -66,6 +67,10 @@ class User extends BaseEntity {
   @OneToMany(() => Ad, (ad) => ad.user)
   @Field(() => [Ad])
   ads!: Ad[];
+
+  // @OneToMany(() => Favorite, (favorite) => favorite.user) 
+  // @Field(() => [Favorite])
+  // favorites!: Favorite[];
 
     // One user can have many payments
   @OneToMany(() => Payment, (payment) => payment.user)

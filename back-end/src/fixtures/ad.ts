@@ -139,37 +139,39 @@ const staticAds = [
 ];
 
 export const generateAds = async () => {
-  // 1. DELETE ALL EXISTING ADS FIRST (clean slate)
-  await Ad.delete({}); 
-
-  // 2. Get fresh users
   const users = await generateUsers();
+  const ads = [];
   
-  // 3. Create new ads with duplicate protection
-  const createdAds = [];
-  const uniqueKeys = new Set(); // Track titles to prevent duplicates
+  for (const staticAd of staticAds) {
+    // Check if ad already exists by comparing multiple fields
+    const existingAd = await Ad.findOne({
+      where: {
+        title: staticAd.title,
+        location: staticAd.location,
+        price: staticAd.price
+      }
+    });
 
-  for (const adData of staticAds) {
-    // 4. Create a unique signature for each ad
-    const adSignature = `${adData.title}-${adData.location}-${adData.price}`;
-
-    if (!uniqueKeys.has(adSignature)) {
+    if (!existingAd) {
       const ad = new Ad();
-      ad.title = adData.title;
-      ad.description = adData.description;
-      ad.price = adData.price;
-      ad.location = adData.location;
-      ad.image = adData.image;
-      ad.equipements = adData.equipements;
-      ad.housingType = adData.housingType;
-      ad.user = users[Math.floor(Math.random() * users.length)]; // Random user
-      
-      await ad.save();
-      createdAds.push(ad);
-      uniqueKeys.add(adSignature);
+      ad.title = staticAd.title;
+      ad.description = staticAd.description;
+      ad.price = staticAd.price;
+      ad.location = staticAd.location;
+      ad.image = staticAd.image;
+      ad.equipements = staticAd.equipements;
+      ad.housingType = staticAd.housingType;
+      ad.user = users[Math.floor(Math.random() * users.length)]; // Random user assignment
+      ads.push(ad);
     }
   }
 
-  console.log(`Generated ${createdAds.length} unique ads`);
+  if (ads.length > 0) {
+    await Ad.save(ads);
+    console.log(`Created ${ads.length} new ads`);
+  } else {
+    console.log('No new ads to create - all exist already');
+  }
+
   return Ad.find({ relations: ["user"] });
 };
