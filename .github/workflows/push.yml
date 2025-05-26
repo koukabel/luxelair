@@ -7,9 +7,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: docker compose -f docker-compose.ci.web-app.yml up --build --exit-code-from web-app
+      
   ci-back-end:
     name: Build and test back-end
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: docker compose -f docker-compose.ci.back-end.yml up --build --exit-code-from back-end
+
+  build-and-push:
+    name: Build and Push on Dockerhub
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/build-push-action@v6.17.0
+        with:
+          # GitHub Token used to authenticate against a repository for Git context
+          github-token: ${{ github.token }}
+          
