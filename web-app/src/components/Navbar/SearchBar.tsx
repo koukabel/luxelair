@@ -32,7 +32,7 @@ export default function SearchBar() {
   return (
 
     <Flex margin="12rem 50px 20px;"  justifyContent="center">
-      <Center b="1px solid" borderColor="blackAlpha.100" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" width="50%" borderRadius="5em">
+      <Center border="1px solid" borderColor="blackAlpha.100" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" width="50%" borderRadius="5em">
         <Box p="1em" borderRadius="5em" flex='1'
           _hover={{
             background: "blackAlpha.100",
@@ -40,7 +40,7 @@ export default function SearchBar() {
           }}>
           <Input outline="none" border="none"  bg="none" color="gray" fontSize="sm" placeholder="Votre destination..."
             value={searchLocation}
-            onChange={(e) => setSearchLocation(e.target.value)} />
+            onChange={(e:any) => setSearchLocation(e.target.value)} />
         </Box>
         <Divider h="50%" orientation='vertical' />
         <Box p="1em" borderRadius="5em" flex='1'
