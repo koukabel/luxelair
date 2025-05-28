@@ -5,11 +5,11 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://back-end:4000/:path*", // Proxy to Backend
+        destination: "http://luxelair-back-end:4000/:path*", // Proxy to Backend
       },
       {
         source: "/file-hosting/:path*",
-        destination: "http://file-hosting:5001/:path*",
+        destination: "http://luxelair-file-hosting:5001/:path*",
       },
     ];
   },
