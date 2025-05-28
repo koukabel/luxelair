@@ -6,8 +6,8 @@ interface props {
   id: string;
   location: string;
   price: number;
-  image: string;
-  title: string
+  image?: string;
+  title?: string
 }
 
 const Card: React.FC<props> = ({ id, location, price, title, image }) => {

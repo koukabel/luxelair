@@ -22,6 +22,7 @@ const GET_ADS = gql`
 
 export default function HomePage() {
   const { data } = useQuery<AdsQuery>(GET_ADS);
+  console.log(data);
   return (
     <ChakraProvider>
       <Box height="100vh" display="flex" flexDirection="column">
@@ -33,14 +34,15 @@ export default function HomePage() {
 
         <SimpleGrid w="100%" padding="45" minChildWidth="300px" spacing="50px">
           {data?.getAds
-            ? data.getAds.map((ad) => (
+            ? data.getAds.map((ad: any) => (
                 <Card
                   key={ad.id}
                   id={ad.id}
                   price={ad.price}
                   title= {ad.title}
                   location={ad.location}
-                  image={ad.image}
+                  image = {ad.image}
+                   // Fallback image if ad.image is undefined 
                 />
               ))
             : null}
