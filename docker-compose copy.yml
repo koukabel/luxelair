@@ -1,0 +1,39 @@
+
+services:
+  luxelair-back-end:
+    container_name: luxelair-back-end
+    image: khouloudbelkhir/luxelair-back:latest
+    environment:
+      - NODE_ENV=dev
+      - DATABASE_URL=postgres://postgres:password@luxelair-database:5432/postgres
+      - CACHE_URL=redis://luxelair-cache:6379
+    depends_on:
+      - luxelair-database
+    ports:
+      - 4000:4000
+
+  luxelair-file-hosting:
+    container_name: luxelair-file-hosting
+    image: khouloudbelkhir/luxelair-file:latest
+    ports:
+      - 5001:5001
+    volumes:
+      - /mnt/exdisk/k8s/pvc/luxelair/file-hosting:/app/public
+    
+  luxelair-web-app:
+    container_name: luxelair-front
+    image: khouloudbelkhir/luxelair-front:latest
+    ports:
+      - 3000:3000
+
+  luxelair-database:
+    container_name: luxelair-database
+    image: postgres:15
+    volumes:
+      - /mnt/exdisk/k8s/pvc/luxelair/db/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+
+  luxelair-cache:
+    container_name: luxelair-cache
+    image: redis
