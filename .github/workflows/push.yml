@@ -50,3 +50,11 @@ jobs:
           context: "{{defaultContext}}:back-end"
           push: true
           tags: khouloudbelkhir/luxelair-back:latest
+
+      - name: Build and Push to Docker Hub
+        uses: docker/build-push-action@v6.17.0
+        with:
+          platforms: linux/amd64,linux/arm64
+          context: "{{defaultContext}}:file-hosting"
+          push: true
+          tags: khouloudbelkhir/luxelair-file:latest
