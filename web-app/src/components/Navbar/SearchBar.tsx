@@ -32,7 +32,7 @@ export default function SearchBar() {
   return (
 
     <Flex  justifyContent="center" className="search_agenda">
-      <Center className="search_container" b="1px solid" borderColor="blackAlpha.100" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" borderRadius="5em">
+      <Center className="search_container" border="1px solid" borderColor="blackAlpha.100" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" borderRadius="5em">
         <Box  className="input_search"  borderRadius="5em" flex='1'
           _hover={{
             background: "blackAlpha.100",
