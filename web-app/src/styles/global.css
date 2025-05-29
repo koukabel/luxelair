@@ -119,3 +119,29 @@ a.leaflet-bar-part.leaflet-bar-part-single {
 	background: white;
 	cursor: pointer;
 }
+
+.search_agenda{
+	margin: 9rem 1rem 3rem;
+}
+
+.search_container {
+		width: 50%; 
+	}
+
+.input_search {
+	padding: 1em;
+}
+
+@media screen and (max-width: 768px) {
+	.filter-section {
+		padding: 30px !important;
+		 overflow-y: scroll;
+	}
+	.search_container {
+		width: 350px; 
+	}
+	.input_search {
+	padding: 0px;
+	width: 100px;
+}
+}

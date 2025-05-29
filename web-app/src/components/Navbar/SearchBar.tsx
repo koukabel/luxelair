@@ -31,44 +31,45 @@ export default function SearchBar() {
 
   return (
 
-    <Flex margin="12rem 50px 20px;"  justifyContent="center">
-      <Center border="1px solid" borderColor="blackAlpha.100" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" width="50%" borderRadius="5em">
-        <Box p="1em" borderRadius="5em" flex='1'
+    <Flex  justifyContent="center" className="search_agenda">
+      <Center className="search_container" b="1px solid" borderColor="blackAlpha.100" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" borderRadius="5em">
+        <Box  className="input_search"  borderRadius="5em" flex='1'
           _hover={{
             background: "blackAlpha.100",
             color: "gray"
           }}>
-          <Input outline="none" border="none"  bg="none" color="gray" fontSize="sm" placeholder="Votre destination..."
+          <Input outline="none" border="none" bg="none" color="gray" fontSize="sm" placeholder="Votre destination..."
             value={searchLocation}
-            onChange={(e:any) => setSearchLocation(e.target.value)} />
+            onChange={(e) => setSearchLocation(e.target.value)} />
         </Box>
         <Divider h="50%" orientation='vertical' />
-        <Box p="1em" borderRadius="5em" flex='1'
+        <Box  className="input_search"  borderRadius="5em" flex='1'
           _hover={{
             background: "blackAlpha.100",
             color: "gray"
           }}>
 
-          <Input
+          <Input    
             placeholder="Départ"
             textAlign="center"
-            border="none" 
+            border="none"
             bg="none"
-             fontSize="sm"
+            fontSize="sm"
             type="date"
           />
         </Box>
         <Divider h="50%" orientation='vertical' />
-        <Box p="1em" borderRadius="5em" flex='1'
+        <Box  className="input_search"  borderRadius="5em" flex='1'
           _hover={{
-            background:"blackAlpha.100",
+            background: "blackAlpha.100",
             color: "gray"
           }}>
 
           <Input
+          
             textAlign="center"
-             bg="none"
-     
+            bg="none"
+
             border="none" color="gray" fontSize="sm"
             placeholder="Arrivée"
             type="date"
@@ -79,46 +80,6 @@ export default function SearchBar() {
         </Button>
       </Center>
     </Flex>
-
-    //   <Box marginTop="12rem" width="100%" borderRadius="20%" bg="red">
-    //  <Flex alignItems="center" w="70%" paddingBottom="20px" m="auto">
-    //     <Input
-    //       placeholder="Rechercher une destination"
-    //       size="md"
-    //       fontFamily="Montserrat"
-    //       fontWeight="regular"
-    //       fontSize="12px"
-    //       value={searchLocation}
-    //       onChange={(e) => setSearchLocation(e.target.value)}
-    //     />
-    //     <Input
-    //       placeholder="Départ"
-    //       size="md"
-    //       fontFamily="Montserrat"
-    //       fontWeight="regular"
-    //       fontSize="12px"
-    //       type="date"
-    //     />
-    //     <Input
-    //       placeholder="Arrivée"
-    //       size="md"
-    //       fontFamily="Montserrat"
-    //       fontWeight="regular"
-    //       fontSize="12px"
-    //       type="date"
-    //     />
-
-    //     <IconButton
-    //       colorScheme="gray"
-    //       aria-label="Search database"
-    //       icon={<SearchIcon />}
-    //       onClick={handleSearch}
-    //     />
-
-    //   </Flex> 
-
-    // </Box> 
-
 
   );
 }

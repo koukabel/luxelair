@@ -41,3 +41,26 @@
 	background: white;
 	cursor: pointer;
 } */
+
+@media screen and (max-width: 768px) {
+	.filter-section {
+		flex-direction: column;
+		align-items: flex-start;
+		height: auto;
+		padding: 10px;
+	}
+
+	.filter-section .filter-icons {
+		flex-direction: column;
+	}
+
+	.filter-section .filter-icon-box {
+		padding-right: 0;
+		margin-bottom: 10px;
+	}
+
+	.filter-section .filter-button {
+		width: 100%;
+	}
+	
+}
