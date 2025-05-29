@@ -9,7 +9,7 @@ export function setUserSessionIdInCookie(
 ) {
   if (session) {
     expressResponse.cookie("userSessionId", session.id, {
-      secure: true,
+      secure: false,
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
     });
