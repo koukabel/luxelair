@@ -72,7 +72,7 @@ export default function Navbar() {
     >
       <Link href="/" width={"30%"}>
         <Image
-          src="/logo_white.png"
+          src="logo_white.png"
           boxSize={{ base: "100px", md: "120px" }}
           objectFit="fill"
         />
@@ -88,7 +88,7 @@ export default function Navbar() {
         <Box fontWeight="bold" width="50%" textAlign={"center"}>
           <Image
             fontSize={{ base: "2xl", md: "4xl" }} //
-            src="/luxelair_title_logo.svg"
+            src="luxelair_title_logo.svg"
           />
         </Box>
       </Flex>
@@ -115,7 +115,6 @@ export default function Navbar() {
               <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton />
-                <DrawerHeader>Menu</DrawerHeader>
                 <DrawerBody>
                   <VStack spacing={4} align="start">
                     <Link

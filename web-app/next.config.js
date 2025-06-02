@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+   basePath: "/luxelair", 
   reactStrictMode: true,
   async rewrites() {
     return [
