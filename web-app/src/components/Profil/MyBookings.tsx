@@ -39,9 +39,6 @@ export default function MyBookings() {
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Erreur de chargement</Text>;
 
-  console.log(data);
-  console.log(confirmedBookings);
-
   return (
     <Box>
       <Heading as="h2" size="xl" marginBottom="5">
