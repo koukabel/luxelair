@@ -84,7 +84,6 @@ a.leaflet-bar-part.leaflet-bar-part-single {
 	margin: 5px;
 	position: sticky;
 	top: 0;
-	z-index: 1000;
 	background: white;
 }
 
@@ -121,7 +120,8 @@ a.leaflet-bar-part.leaflet-bar-part-single {
 }
 
 .search_agenda{
-	margin: 9rem 1rem 3rem;
+	margin: 14rem 1rem 3rem;
+	/* //z-index: 1000; */
 }
 
 .search_container {
@@ -132,6 +132,8 @@ a.leaflet-bar-part.leaflet-bar-part-single {
 .input_search {
 	padding: 1em;
 }
+
+
 
 @media screen and (max-width: 768px) {
 	.filter-section {

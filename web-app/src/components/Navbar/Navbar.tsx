@@ -64,9 +64,10 @@ export default function Navbar() {
     <Flex
       bg="white"
       position="fixed"
+      className="navbar_desktop"
       top="0"
       width="100%"
-      zIndex="1 "
+      zIndex="1000 "
       alignItems="center"
       p={{ base: 2, md: 4 }}
     >
