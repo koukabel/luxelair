@@ -68,7 +68,7 @@ const FilterSection = () => {
 	};
 
 	return (
-		<Flex p="10px" alignItems='center' gap='10' justifyContent="center" className="filter-section">
+		<Flex p="10px" alignItems='center' gap='5' justifyContent="center" className="filter-section" flex-wrap>
 		
 
 		{data?.getHousingTypes &&

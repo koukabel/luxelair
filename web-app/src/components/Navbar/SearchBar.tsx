@@ -38,7 +38,7 @@ export default function SearchBar() {
             background: "blackAlpha.100",
             color: "gray"
           }}>
-          <Input outline="none" border="none" bg="none" color="gray" fontSize="sm" placeholder="Votre destination..."
+          <Input outline="none" border="none" bg="none" color="gray" fontSize="sm" placeholder="Destination"
             value={searchLocation}
             onChange={(e) => setSearchLocation(e.target.value)} />
         </Box>
@@ -50,7 +50,7 @@ export default function SearchBar() {
           }}>
 
           <Input    
-            placeholder="Départ"
+            placeholder="départ"
             textAlign="center"
             border="none"
             bg="none"

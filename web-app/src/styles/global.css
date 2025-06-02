@@ -126,6 +126,7 @@ a.leaflet-bar-part.leaflet-bar-part-single {
 
 .search_container {
 		width: 50%; 
+		z-index: 999;
 	}
 
 .input_search {
@@ -144,4 +145,8 @@ a.leaflet-bar-part.leaflet-bar-part-single {
 	padding: 0px;
 	width: 100px;
 }
+.search_agenda{
+	margin: 9rem 1rem 1rem;
+}
+
 }

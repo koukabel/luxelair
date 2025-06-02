@@ -68,7 +68,7 @@ export default function SearchHousingTypePage() {
                 id={ad.id}
                 price={ad.price}
                 location={ad.location}
-                image={`/file-hosting/${ad.id}.jpg`}
+                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/file-hosting/${ad.id}.jpg`}
               />
             ))}
           </SimpleGrid>

@@ -218,30 +218,17 @@ export default function Ad() {
           alignItems="center"
           padding="10px"
         >
-          <Box flex="1" padding="5px">
-            <Image
-              src="https://static-cms.routard.com/web-routard/uploads/xlarge_nice_1466255_d6980c20c2.jpg"
-              alt="Small Image 1"
-              width="100%"
-              borderRadius="md"
-            />
-          </Box>
+
           <Box flex="2" padding="5px">
             <Image
-              src={`/file-hosting/${id}.jpg`}
+              //src={`${process.env.NEXT_PUBLIC_BASE_PATH}/file-hosting/${id}.jpg`}
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/ad1.jpeg`} 
               alt="Main Image"
               width="100%"
               borderRadius="md"
             />
           </Box>
-          <Box flex="1" padding="5px">
-            <Image
-              src="https://edito.seloger.com/sites/default/files/styles/735x412/public/images/web/2022-01/centre-ville-nice-seloger.jpg?itok=0HkXzuEb"
-              alt={ad.title}
-              width="100%"
-              borderRadius="md"
-            />
-          </Box>
+
         </Flex>
         <Box
           fontFamily={"Raleway"}
@@ -257,7 +244,8 @@ export default function Ad() {
 
         <Box width="100%" height="200px" my={4}>
           <Image
-            src="/abstract_separateur.jpeg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/abstract_separateur.jpeg`}
+
             alt="Banner Image"
             objectFit="fill"
             width="100%"

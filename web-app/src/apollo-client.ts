@@ -9,7 +9,7 @@ import {
   const createApolloClient = () => {
     if (!apolloClient) {
       apolloClient = new ApolloClient({
-        uri: "/api",
+        uri: "/luxelair/api",
         cache: new InMemoryCache(),
       });
     }

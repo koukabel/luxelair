@@ -30,9 +30,9 @@ const Card: React.FC<props> = ({ id, location, price, title, image }) => {
   position="relative"
 >
 
-<Link href={`/ad/${id}`} _hover={{ textDecoration: "none" }}>
+<Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/ad/${id}`} _hover={{ textDecoration: "none" }}>
   <Image 
-    src="/ad1.jpeg"
+    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/ad1.jpeg`} 
     alt="" 
     width="100%"
     objectFit="cover"
@@ -88,7 +88,7 @@ const Card: React.FC<props> = ({ id, location, price, title, image }) => {
   </Flex>
 
 </Box>
-<Link href={`/ad/${id}`} _hover={{ textDecoration: "none" }}> 
+<Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/ad/${id}`} _hover={{ textDecoration: "none" }}> 
       <Box
         mt="1"
         as="h4"

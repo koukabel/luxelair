@@ -13,7 +13,7 @@ export default function Footer() {
 		>
 			<VStack spacing={6}>
 				<Text fontSize="sm">© 2024 Luxelair. All rights reserved.</Text>
-				<Image src="logo_black.png" boxSize="30px" objectFit="contain" />
+				<Image src={`${process.env.NEXT_PUBLIC_BASE_PATH}/logo_black.png`} boxSize="30px" objectFit="contain" />
 			</VStack>
 		</Box>
 	);

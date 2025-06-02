@@ -71,7 +71,7 @@ export default function Booking() {
                 height={"300px"}
                 width={"310px"}
                 objectFit={"cover"}
-                src={`/file-hosting/${data.getBooking.ad.id}.jpg`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/file-hosting/${data.getBooking.ad.id}.jpg`}
                 alt={`Image de l'annonce ${data.getBooking.ad.title}`}
               />
               <Box marginLeft="4" flex="1">

@@ -70,9 +70,9 @@ export default function Navbar() {
       alignItems="center"
       p={{ base: 2, md: 4 }}
     >
-      <Link href="/" width={"30%"}>
+      <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/`} width={"30%"}>
         <Image
-          src="logo_white.png"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/logo_white.png`}
           boxSize={{ base: "100px", md: "120px" }}
           objectFit="fill"
         />
@@ -88,7 +88,7 @@ export default function Navbar() {
         <Box fontWeight="bold" width="50%" textAlign={"center"}>
           <Image
             fontSize={{ base: "2xl", md: "4xl" }} //
-            src="luxelair_title_logo.svg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/luxelair_title_logo.svg`}
           />
         </Box>
       </Flex>
@@ -123,8 +123,8 @@ export default function Navbar() {
                       fontSize="16px"
                       href={
                         data?.myProfile
-                          ? "/publishAd/CreateAdForm"
-                          : "/authentication/login"
+                          ? `${process.env.NEXT_PUBLIC_BASE_PATH}/publishAd/CreateAdForm`
+                          : `${process.env.NEXT_PUBLIC_BASE_PATH}/authentication/login`
                       }
                     >
                       Mettre ma propriété sur Luxelair
@@ -135,7 +135,7 @@ export default function Navbar() {
                           cursor="pointer"
                           fontWeight="light"
                           fontSize="16px"
-                          href={`/profil/traveler/${data?.myProfile.id}`}
+                          href={`${process.env.NEXT_PUBLIC_BASE_PATH}/profil/traveler/${data?.myProfile.id}`}
                         >
                           Mode Voyageur
                         </Link>
@@ -143,7 +143,7 @@ export default function Navbar() {
                           cursor="pointer"
                           fontWeight="light"
                           fontSize="16px"
-                          href={`/dashboard/${data?.myProfile.id}`}
+                          href={`${process.env.NEXT_PUBLIC_BASE_PATH}/dashboard/${data?.myProfile.id}`}
                         >
                           Mode Hôte
                         </Link>
@@ -152,7 +152,7 @@ export default function Navbar() {
                           fontWeight="light"
                           fontSize="16px"
                           onClick={handleSignOut}
-                          href={`/authentication/login`}
+                          href={`${process.env.NEXT_PUBLIC_BASE_PATH}/authentication/login`}
                         >
                           Déconnexion
                         </Link>
@@ -162,7 +162,7 @@ export default function Navbar() {
                         cursor="pointer"
                         fontWeight="light"
                         fontSize="16px"
-                        href="/authentication/login"
+                        href={`${process.env.NEXT_PUBLIC_BASE_PATH}/authentication/login`}
                       >
                         Connexion
                       </Link>
@@ -186,8 +186,8 @@ export default function Navbar() {
               fontSize="16px"
               href={
                 data?.myProfile
-                  ? "/publishAd/CreateAdForm"
-                  : "/authentication/login"
+                  ? `${process.env.NEXT_PUBLIC_BASE_PATH}/publishAd/CreateAdForm`
+                  : `${process.env.NEXT_PUBLIC_BASE_PATH}/authentication/login`
               }
             >
               Mettre ma propriété sur Luxelair
@@ -198,7 +198,7 @@ export default function Navbar() {
                   cursor="pointer"
                   fontSize="16px"
                   onClick={handleSignOut}
-                  href={`/authentication/login`}
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH}/authentication/login`}
                 >
                   Déconnexion
                 </Link>
@@ -216,13 +216,13 @@ export default function Navbar() {
                   <MenuList>
                     <MenuItem
                       as={Link}
-                      href={`/profil/traveler/${data?.myProfile.id}`}
+                      href={`${process.env.NEXT_PUBLIC_BASE_PATH}/profil/traveler/${data?.myProfile.id}`}
                     >
                       Mode Voyageur
                     </MenuItem>
                     <MenuItem
                       as={Link}
-                      href={`/dashboard/${data?.myProfile.id}`}
+                      href={`${process.env.NEXT_PUBLIC_BASE_PATH}/dashboard/${data?.myProfile.id}`}
                     >
                       Mode Hôte
                     </MenuItem>
@@ -233,7 +233,7 @@ export default function Navbar() {
               <Link
                 cursor="pointer"
                 fontSize="16px"
-                href="/authentication/login"
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH}/authentication/login`}
               >
                 Connexion
               </Link>

@@ -52,7 +52,7 @@ const MyAds: React.FC<props> = ({categorieName}) => {
 								width={"310px"}
 								objectFit={"cover"}
 								src={image}
-								alt={`Image de l'annonce ${titre}`}
+								alt=""
 							/>
 							<Box p="2">
 								<Stack spacing={6}>
