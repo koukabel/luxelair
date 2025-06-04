@@ -7,7 +7,11 @@ body {
 	margin: 0;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
 	font-family: "Roboto";
 }
 
@@ -36,6 +40,7 @@ a {
 }
 
 @import url("leaflet/dist/leaflet.css");
+
 .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
 	max-width: 70%;
 	position: relative;
@@ -49,7 +54,8 @@ a {
 .location-icon {
 	position: absolute;
 	top: 50%;
-	right: 10px; /* Adjust as needed to position the icon */
+	right: 10px;
+	/* Adjust as needed to position the icon */
 	transform: translateY(-50%);
 }
 
@@ -119,15 +125,15 @@ a.leaflet-bar-part.leaflet-bar-part-single {
 	cursor: pointer;
 }
 
-.search_agenda{
+.search_agenda {
 	margin: 14rem 1rem 3rem;
 	/* //z-index: 1000; */
 }
 
 .search_container {
-		width: 50%; 
-		z-index: 999;
-	}
+	width: 50%;
+	z-index: 999;
+}
 
 .input_search {
 	padding: 1em;
@@ -136,19 +142,38 @@ a.leaflet-bar-part.leaflet-bar-part-single {
 
 
 @media screen and (max-width: 768px) {
-	.filter-section {
-		padding: 30px !important;
-		 overflow-y: scroll;
-	}
 	.search_container {
-		width: 350px; 
+		width: 350px;
 	}
+
 	.input_search {
-	padding: 0px;
-	width: 100px;
-}
-.search_agenda{
-	margin: 9rem 1rem 1rem;
-}
+		padding: 0px;
+		width: 100px;
+	}
+
+	.search_agenda {
+		margin: 9rem 1rem 1rem;
+	}
+
+	.filter-section {
+		flex-direction: row;
+		align-items: flex-start;
+		overflow-y: scroll;
+		height: auto;
+		padding: 33px 10px 36px 54px !important;
+	}
+
+	.filter-section .filter-icons {
+		flex-direction: column;
+	}
+
+	.filter-section .filter-icon-box {
+		padding-right: 0;
+		margin-bottom: 10px;
+	}
+
+	.filter-section .filter-button {
+		width: 100%;
+	}
 
 }
